@@ -30,7 +30,7 @@ describe('Cart', function () {
 
     it('deve adicionar um produto ao carrinho', function () {
         cart.addProduct(product1);
-        assert.strictEqual(cart.getProducts().length, 3);
+        assert.strictEqual(cart.getProducts().length, 1);
         assert.deepStrictEqual(cart.getProducts()[0], product1);
     });
 
@@ -38,20 +38,20 @@ describe('Cart', function () {
         cart.addProduct(product1);
         cart.addProduct(product2);
         cart.addProduct(product3);
-        assert.strictEqual(cart.getProducts().length, 5);
+        assert.strictEqual(cart.getProducts().length, 3);
     });
 
     it('deve remover um produto do carrinho', function () {
         cart.addProduct(product1);
         cart.addProduct(product2);
-        cart.removeProduct(product3.id);
+        cart.removeProduct(product1.id);
         assert.strictEqual(cart.getProducts().length, 1);
         assert.deepStrictEqual(cart.getProducts()[0], product2);
     });
 
     it('não deve remover nada se o produto não existir', function () {
         cart.addProduct(product1);
-        cart.removeProduct(product1.id);
+        cart.removeProduct(999);
         assert.strictEqual(cart.getProducts().length, 1);
     });
 });
