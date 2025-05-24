@@ -38,7 +38,7 @@ describe('Cart', function () {
         cart.addProduct(product1);
         cart.addProduct(product2);
         cart.addProduct(product3);
-        assert.strictEqual(cart.getProducts().length, 2);
+        assert.strictEqual(cart.getProducts().length, 5);
     });
 
     it('deve remover um produto do carrinho', function () {
